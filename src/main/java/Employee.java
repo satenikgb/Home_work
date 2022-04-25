@@ -1,10 +1,20 @@
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRegistry;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.List;
-
+@XmlRootElement(name ="Employee" )
+@XmlType(propOrder={"firstName","lastName","age","address","phoneNumbers"})
 public class Employee {
+    @XmlElement
     private String firstName;
+    @XmlElement
     private String lastName;
+    @XmlElement
     private int age;
+    @XmlElement
     Address address;
+    @XmlElement
     private List<PhoneNumber> phoneNumbers;
 
     @Override
