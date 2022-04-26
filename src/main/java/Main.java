@@ -2,11 +2,16 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
+
+
 import java.io.*;
-import java.util.List;
+import java.util.*;
 
 import static javax.xml.bind.JAXBContext.newInstance;
 
@@ -45,15 +50,16 @@ public class Main {
                 employee.getPhoneNumbers().get(0).getNumber());
 
         JAXBContext jaxbContext = null;
-        PhoneNumber phoneNumber=new PhoneNumber("095098642",PhoneNumberType.HOME);
+       // PhoneNumber phoneNumber=new PhoneNumber("095098642",PhoneNumberType.HOME);
         Address address1=new Address("Arm","Yer","Ayg","0025");
         try {
-            jaxbContext = newInstance(Employee.class);
-            Marshaller marshaller = jaxbContext.createMarshaller();
+            jaxbContext = JAXBContext.newInstance(Employee.class);
+            Marshaller marshaller =  jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
-            Employee employee1 = new Employee("Saten", "Gabrielyan", 31,address1,
-                    (List<PhoneNumber>) phoneNumber);
-            marshaller.marshal(employee1, new File("C:\\Users\\User\\Desktop\\aaa.xml"));
+            Employee employee1 = new Employee("Saten", "Gabrielyan", 31,
+                    new Address("a","a","a","0025"),
+                    null);
+            marshaller.marshal(employee1, new File("employee.xml"));
         } catch (JAXBException e) {
             e.printStackTrace();
         }

@@ -1,14 +1,17 @@
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import java.util.List;
-@XmlRootElement(name ="Employee" )
-@XmlType(propOrder={"firstName","lastName","age","address","phoneNumbers"})
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+
+@XmlRootElement(name = "employeeXML")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
     @XmlElement
     private String firstName;
-    @XmlElement
+   @XmlElement
     private String lastName;
     @XmlElement
     private int age;
