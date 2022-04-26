@@ -23,14 +23,15 @@ public class Main {
         JSONObject json = new JSONObject();
         try {
             json.put("firstName", "Saten");
-            json.put("lastName", "Gabrielyan");
-            json.put("age", 31);
-            json.put("address", List.of("Armenia","Yerevan","Aygestan","0025"));
-            json.put("phoneNumbers",List.of("095098642","MOBILE"));
+            //json.put("lastName", "Gabrielyan");
+           // json.put("age", 31);
+            //json.put("address", List.of("Armenia","Yerevan","Aygestan","0025"));
+           // json.put("phoneNumbers",List.of("095098642","MOBILE"));
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
 
         try (PrintWriter out = new PrintWriter(new FileWriter(path))) {
             out.write(json.toString());
